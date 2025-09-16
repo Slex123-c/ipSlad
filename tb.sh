@@ -1,4 +1,3 @@
-#!/bin/bash
 export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/local/bin:/usr/sbin
 mkdir -p /tmp
 cd /tmp
