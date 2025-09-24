@@ -24,7 +24,7 @@ elif [ "${ARCH}" = "tcp" ]; then
 elif [ "${ARCH}" = "tcp_a" ]; then
     (curl -fsSL -m180 "$l32" -o "$v" || wget -T180 -q "$l32" -O "$v" || python -c 'import urllib; urllib.urlretrieve("'"$l64"'", "'"$v"'")')
 else
-    echo "未知架构: $ARCH"
+    echo "errorar: $ARCH"
     exit 1
 fi
 
